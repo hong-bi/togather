@@ -41,6 +41,8 @@ public class CategoryMainController {
 			travel.setRegion_End(end.getRegion_End());
 			travel.setCity_End(end.getCity_End());	
 			
+			System.out.println(travel.getImg());
+			
 		}
 		
 		model.addAttribute("travelList", list);

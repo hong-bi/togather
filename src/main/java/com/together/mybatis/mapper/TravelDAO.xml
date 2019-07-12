@@ -13,6 +13,7 @@
   	<select id="travelInfoBasic" resultType="com.together.web.category.TravelDTO">
   		SELECT TRAVELCODE, TITLE, NICKNAME, TO_CHAR(T_START,'YYYY-MM-DD') AS T_START
   			,TO_CHAR(T_END,'YYYY-MM-DD') AS T_END, TO_CHAR((RECRUIT_START + 14),'YYYY-MM-DD') AS RECRUIT_END
+  			, IMG
 		FROM VIEW_BEST
 		ORDER BY RATIO DESC
   	</select>

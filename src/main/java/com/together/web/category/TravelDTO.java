@@ -7,7 +7,7 @@ public class TravelDTO {
 	int travelCode, tempCode, writerCode, genderCode, peopleNum, viewNum;
 	
 	String recruit_Start, recruit_End, t_Start, t_End, title, intro, nickName, city_Start, city_End
-	, region_Start, region_End;
+	, region_Start, region_End, img;
 
 	
 	int[] themaCode;
@@ -129,6 +129,12 @@ public class TravelDTO {
 	}
 	public void setRegion_End(String region_End) {
 		this.region_End = region_End;
+	}
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
 	}
 	
 	

@@ -23,10 +23,9 @@
 				<select class="custom-select"
 					style="width: 120px; height: 35px; font-size: 11pt; float: right; bottom: 0px;">
 					<option selected>최신순</option>
-					<option value="1">인기순</option>
-					<option value="2">조회순</option>
-					<option value="3">찜많은순</option>
-					<option value="4">인기작가순</option>
+					<option value="1">조회순</option>
+					<option value="2">찜많은순</option>
+					<option value="3">인기작가순</option>
 				</select>
 			</div>
 		</div>
@@ -49,17 +48,18 @@
 					<div class="card"
 						style="width: 200px; height: 400px; border: 0px; display: inline-block;">
 						<div class="selector" style="width: 200px; height: 200px;">
-							<a href=""><img src="<c:url value="/resources/images/1.png" />" class="card-img-top" alt="..."></a>
+							<a href=""><img src="<c:url value="/resources/userimages/${travel.img }" />" class="card-img-top" alt="..."></a>
 						</div>
 						<div class="cardBody">
 							<div>
 								<span class="postTitle">${travel.title}</span>
 							</div>
 							<div>
-								<span class="postContent">${travel.nickName }</span>
+								<span class="postContent">여행작가 : ${travel.nickName }</span>
 							</div>
 							<div>
 								<span class="postContent">
+									여행테마 : 
 									<c:forEach var="thema" items="${travel.themaType }">
 										${thema} 　
 									</c:forEach>
@@ -68,8 +68,13 @@
 							<div>
 							<!-- 짤렸어 확인해 -->
 								<span class="postContent">
-									${travel.region_Start }${travel.city_Start }-${travel.region_End }${travel.city_End }
+									${travel.region_Start }-${travel.city_Start }
 								</span>
+							</div><div>
+								<span class="postContent">
+									→${travel.region_End }/${travel.city_End }								
+								</span>								
+								
 							</div>
 							<div>
 								<span class="postContent">
