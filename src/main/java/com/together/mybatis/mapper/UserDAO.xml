@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.together.web.login.IUserDAO">
+     
+     <select id="login" parameterType="com.together.web.login.UserDTO" resultType="java.lang.Integer">
+        SELECT COUNT(*) AS COUNT
+		FROM TBL_USER
+		WHERE USERID = #{userId}
+  		AND USERPW = CRYPTPACK.ENCRYPT(#{userPw},#{userPw})    
+     </select>
+     
+     <select id="checkId" parameterType="java.lang.String" resultType="java.lang.Integer">
+     	SELECT COUNT(*) AS COUNT
+		FROM TBL_USER
+		WHERE USERID = #{userId}
+     </select>
+     
+     <select id="checkNickname" parameterType="java.lang.String" resultType="java.lang.Integer">
+     	SELECT COUNT(*) AS COUNT
+		FROM TBL_USER
+		WHERE NICKNAME = #{nickName}
+     </select>
+     
+     <select id="checkEmail" parameterType="java.lang.String" resultType="java.lang.Integer">
+     	SELECT COUNT(*) AS COUNT
+		FROM TBL_USER
+		WHERE EMAIL = #{email}
+     </select>
+     
+     <insert id="add" parameterType="com.together.web.login.UserDTO">
+     	INSERT INTO TBL_USER(USERCODE ,USERID, USERPW, NAME, NICKNAME, BIRTH, GENDERCODE, EMAIL, INTRO)
+		VALUES((SELECT MAX(USERCODE) +1 FROM TBL_USER),
+ 				#{userId}, CRYPTPACK.ENCRYPT(#{userPw}, #{userPw}), #{name}, #{nickName}
+ 				, TO_DATE(#{birth},'YYYY-MM-DD'), #{genderCode}, #{email}, #{intro})
+     </insert>
+     
+     <select id="searchUserCode" parameterType="com.together.web.login.UserDTO" resultType="java.lang.Integer">
+     	SELECT USERCODE
+		FROM TBL_USER
+		WHERE USERID = #{userId}
+     </select>
+    
+     <insert id="addUthema" parameterType="map">
+		INSERT INTO U_THEMA(U_THEMACODE, USERCODE, THEMACODE)
+		VALUES((SELECT MAX(U_THEMACODE)+1 FROM U_THEMA)
+		, #{userCode}, #{themaCode})
+	 </insert>  
+	  
+	 <select id="searchId" parameterType="com.together.web.login.UserDTO" resultType="java.lang.Integer">
+        SELECT COUNT(*) AS COUNT
+		FROM TBL_USER
+		WHERE NAME=#{name}
+        AND BIRTH=TO_DATE(#{birth},'YYYY-MM-DD')
+        AND EMAIL=#{email} 
+     </select> 
+     
+     <select id="searchUserId" parameterType="com.together.web.login.UserDTO" resultType="java.lang.String">
+        SELECT USERID
+		FROM TBL_USER
+		WHERE EMAIL=#{email} 
+     </select> 
+     
+     <select id="searchPw" parameterType="com.together.web.login.UserDTO" resultType="java.lang.Integer">
+        SELECT COUNT(*) AS COUNT
+		FROM TBL_USER
+		WHERE USERID = #{userId}
+        AND BIRTH=TO_DATE(#{birth},'YYYY-MM-DD')
+        AND EMAIL=#{email} 
+     </select> 
+    
+  
+    
+  
+  </mapper>

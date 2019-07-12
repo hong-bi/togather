@@ -1,0 +1,107 @@
+@charset "UTF-8";
+
+.contentList {
+	width: 1140px;
+	margin-top: 20px;
+}
+
+.categoryB {
+	width: 1100px;
+	margin-bottom: 20px;
+	margin-left: 20px;
+}
+
+.categoryB span {
+	font-size: 30pt;
+	font-family: 맑은 고딕;
+	font-weight: bold;
+}
+
+.categorySdiv {
+	margin-left: 20px;
+	height: 40px;
+	margin-bottom: 20px;
+}
+
+.categoryS {
+	float: left;
+	width: 55px;
+	height: 40px;
+	margin-right: 10px;
+}
+
+.categoryS>a {
+	text-decoration: none;
+}
+
+.selectB {
+	font-size: 20pt;
+	font-family: 맑은 고딕;
+	font-weight: bold;
+}
+
+.selectN {
+	font-size: 18pt;
+	font-family: 맑은 고딕;
+	color: gray;
+}
+
+.searchDate {
+	height: 64px;
+	margin: 0px 20px 20px 20px;
+}
+
+.searchDateDiv {
+	width: 160px;
+	height: 64px;
+	float: left;
+	margin-left: 10px;
+}
+
+.searchDateButton {
+	font-size: 12pt;
+	font-family: 맑은 고딕;
+	font-weight: bold;
+	background-color: rgb(60, 127, 68);
+	color: white;
+	border-radius: 5px;
+	margin-top: 27px;
+}
+
+.listLine {
+	width: 1100px;
+	height: 5px;
+	margin: 5px 20px 20px 20px;
+	border-top: 3px solid gray;
+}
+
+.cardBody {
+	padding: 10px 10px 10px 10px;
+	width: 200px;
+	height: 200px;
+	text-align: left;
+}
+
+.postTitle {
+	font-size: 12pt;
+	font-family: 맑은 고딕;
+	font-weight: bold;
+	text-align: left;
+}
+
+.postContent {
+	font-size: 10pt;
+	font-family: 맑은 고딕;
+}
+
+.selector img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 200px;
+	height: 200px;
+}
+
+li>a.page-link{
+    color: rgb(60,127,68) !important;
+}

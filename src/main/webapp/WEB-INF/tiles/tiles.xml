@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<!-- 로그인전 타일즈 -->
+	<definition name="default1" template="/WEB-INF/tiles/layout/main-layout.jsp">
+		<put-attribute name="header"
+			value="/WEB-INF/tiles/layout/header_bf.jsp" />
+		<put-attribute name="nevigator"
+			value="/WEB-INF/tiles/layout/nevigator.jsp" />
+		<put-attribute name="footer"
+			value="/WEB-INF/tiles/layout/footer.jsp" />
+	</definition>
+	
+	<!-- 로그인후 타일즈 -->
+	<definition name="default2"
+		template="/WEB-INF/tiles/layout/main-layout.jsp">
+		<put-attribute name="header"
+			value="/WEB-INF/tiles/layout/header_af.jsp" />
+		<put-attribute name="nevigator"
+			value="/WEB-INF/tiles/layout/nevigator.jsp" />
+		<put-attribute name="footer"
+			value="/WEB-INF/tiles/layout/footer.jsp" />
+	</definition>
+	
+	
+	<!-- post 타일즈 -->
+	
+	<!--  <definition name="post"
+		template="/WEB-INF/tiles/layout/main-layout.jsp">
+		<put-attribute name="header"
+			value="/WEB-INF/tiles/layout/header_af.jsp" />
+		<put-attribute name="nevigator"
+			value="/WEB-INF/tiles/layout/nevigator.jsp" />
+		<put-attribute name="footer"
+			value="/WEB-INF/tiles/layout/footer.jsp" />
+	</definition>  -->
+	
+	<!-- 마이페이지 타일즈 -->
+	<definition name="mypage"
+		template="/WEB-INF/tiles/layout/mypage-layout.jsp">
+		<put-attribute name="header"
+			value="/WEB-INF/tiles/layout/header_bf.jsp" />
+		<put-attribute name="nevigator"
+			value="/WEB-INF/tiles/layout/nevigator.jsp" />
+		<put-attribute name="mypageTop"
+			value="/WEB-INF/tiles/layout/mypageTop.jsp" />
+		<put-attribute name="profile"
+			value="/WEB-INF/tiles/layout/profile.jsp" />
+		<put-attribute name="footer"
+			value="/WEB-INF/tiles/layout/footer.jsp" />
+	</definition>
+	
+	<!-- 로그인전 content부분 -->
+	<definition name="main/before/*" extends="default1">
+		<put-attribute name="content"
+			value="/WEB-INF/views/main/before/{1}.jsp" />
+	</definition>
+	
+	<!-- 로그인후 content부분 -->
+	<definition name="main/after/*" extends="default2">
+		<put-attribute name="content"
+			value="/WEB-INF/views/main/after/{1}.jsp" />
+	</definition>
+	
+	<!-- 글등록 content부분 -->
+	<!--  <definition name="posts/*" extends="post">
+		<put-attribute name="content"
+			value="/WEB-INF/views/posts/{1}.jsp" />
+	</definition> -->
+	
+	<!-- mypage content부분 -->
+	<definition name="mypage/*" extends="mypage">
+		<put-attribute name="content"
+			value="/WEB-INF/views/mypage/{1}.jsp" />
+	</definition>
+	
+	<!-- 로그인전 category content부분 -->
+	<definition name="category/*" extends="default1">
+		<put-attribute name="content"
+			value="/WEB-INF/views/category/{1}.jsp" />
+	</definition>
+	<!-- 로그인후 category content부분 -->
+	<!-- <definition name="category/*" extends="default2">
+		<put-attribute name="content"
+			value="/WEB-INF/views/category/{1}.jsp" />
+	</definition> -->
+	
+
+</tiles-definitions>
+
+
+
+

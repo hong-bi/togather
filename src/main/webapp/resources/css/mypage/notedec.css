@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+* {
+	font-size: 10px;
+}
+
+.note {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	width: 80rem;
+	height: 30rem;
+	background-color: #BDBDBD;
+}
+
+.postTitle {
+	text-align: center;
+	background: white;
+	width: 100%;
+}
+
+.noteBox table {
+	text-align: center;
+	border: 0.2rem solid silver;
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2rem;
+}
+
+.subject th {
+	background-color: #E6E6E6;
+	font-size: 1.7rem;
+}
+
+.noteBox table td {
+	background-color: white;
+	font-size: 1.7rem;
+}
+
+.noteText {
+	font-weight: bold;
+	text-align: center;
+    margin: 3rem 3rem 3rem 3rem;
+}
+
+.noteText p {
+	font-size: 1.7rem;
+}
+
+.noteBtn {
+	text-align: center;
+}
+
+.noteBtn button[type="button"] {
+	width: 15rem;
+	background-color: white;
+	font-weight: bold;
+	font-size: 1.7rem;
+}

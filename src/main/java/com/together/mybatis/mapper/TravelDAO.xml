@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.together.web.category.ITravelDAO">
+     
+  	 <select id="nowRecruitTravelNum" resultType="java.lang.Integer">
+  		SELECT COUNT(*) AS COUNT
+		FROM TRAVEL_BASIC
+  	</select>
+  	
+  	<select id="travelInfoBasic" resultType="com.together.web.category.TravelDTO">
+  		SELECT TRAVELCODE, TITLE, NICKNAME, TO_CHAR(T_START,'YYYY-MM-DD') AS T_START
+  			,TO_CHAR(T_END,'YYYY-MM-DD') AS T_END, TO_CHAR((RECRUIT_START + 14),'YYYY-MM-DD') AS RECRUIT_END
+		FROM VIEW_BEST
+		ORDER BY RATIO DESC
+  	</select>
+  	
+  	<select id="tThemaType" parameterType="java.lang.Integer" resultType="java.lang.String">
+  		SELECT THEMATYPE
+		FROM VIEW_TRAVEL_THEMA
+		WHERE TRAVELCODE = #{travelCode}
+  	</select>
+  	
+  	<select id="tCityStart" parameterType="java.lang.Integer" resultType="com.together.web.category.TravelDTO">
+  		SELECT REGION AS REGION_START, CITY AS CITY_START
+		FROM T_CITY
+		WHERE T_REGIONCODE = 
+		(SELECT MIN(T_REGIONCODE) FROM T_REGION	WHERE TRAVELCODE = #{travelCode} )				
+  	</select>
+  	
+  	<select id="tCityEnd" parameterType="java.lang.Integer" resultType="com.together.web.category.TravelDTO">
+  		SELECT REGION AS REGION_START, CITY AS CITY_START
+		FROM T_CITY
+		WHERE T_REGIONCODE = 
+		(SELECT MAX(T_REGIONCODE) FROM T_REGION	WHERE TRAVELCODE = #{travelCode} )				
+  	</select>
+  	
+  	
+  	
+  	
+    
+  
+  </mapper>

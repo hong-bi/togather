@@ -1,0 +1,271 @@
+@charset "UTF-8";
+
+/* header */
+.header-sec {
+	width: 1140px;
+}
+
+.headerNav {
+	width: 100%;
+	display: flex;
+	flex-direction: row-reverse;
+	height: auto;
+}
+
+.headerNav>.common {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.header-sec>.header {
+	text-align: center;
+	width: 1140px;
+}
+
+img.imgLogo {
+	width: 500px;
+}
+
+/* nevigator*/
+.category {
+	display: flex;
+}
+
+.nevigatorBtn {
+	flex: none;
+}
+
+.nevigatorSearch {
+	flex:none;
+	margin-left: 50px;
+}
+
+/* 전체 카태고리, 베스트, 관심목록 */
+.categoryBtn, .bestBtn, .intBtn {
+	border: 1px solid black;
+	font-size: 20px;
+	font-weight: bold;
+	font-family: 맑은 고딕;
+	width: auto;
+	height: 45px;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+/* 검색 버튼 색깔 */
+.searchBtn {
+	background-color: #3C7F44;
+}
+
+.nevigatorSearch>.custom-select {
+	width: 100px;
+}
+
+/**********************************************************************/
+/* 전체 카테고리 메뉴 */
+.categoryMenu {
+	background: white;
+	height: auto;
+	position: absolute;
+	width: 175px;
+	z-index: 200;
+	border: 2px solid #f1f1f1;
+	font-family: 맑은 고딕;
+	display: none;
+	cursor: pointer;
+}
+
+.themaBtn, .regionBtn, .timeBtn {
+	height: 60px;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 12px;
+}
+
+.categoryBtn:hover+.categoryMenu {
+	display: block;
+}
+
+.categoryMenu:hover {
+	display: block;
+}
+
+.categoryMenu div:hover {
+	background-color: #f1f1f1;
+}
+
+.width200 {
+	width: 200px;
+}
+
+/**********************************************************************/
+/* 테마 메뉴 */
+.themaMenu {
+	background: white;
+	height: auto;
+	position: absolute;
+	width: 150px;
+	z-index: 200;
+	border: 2px solid #f1f1f1;
+	font-family: 맑은 고딕;
+	cursor: pointer;
+	margin-left: 170px;
+	font-size: 20px;
+	text-align: center;
+	margin-top: -62px;
+	display: none;
+	font-weight: bold;
+}
+
+.themaMenu div {
+	height: 40px;
+	padding-top: 5px;
+}
+
+.themaBtn:hover+.themaMenu {
+	display: block;
+}
+
+.themaMenu:hover {
+	display: block;
+}
+
+.themaMenu div:hover {
+	color: #3C7F44;
+	text-decoration: underline;
+}
+
+/**********************************************************************/
+/* 지역 메뉴 */
+.regionMenu {
+	background: white;
+	height: auto;
+	position: absolute;
+	width: 150px;
+	z-index: 200;
+	border: 2px solid #f1f1f1;
+	font-family: 맑은 고딕;
+	cursor: pointer;
+	margin-left: 170px;
+	font-size: 20px;
+	text-align: center;
+	margin-top: -122px;
+	display: none;
+	font-weight: bold;
+}
+
+.regionMenu div {
+	height: 40px;
+	padding-top: 5px;
+}
+
+.regionBtn:hover+.regionMenu {
+	display: block;
+}
+
+.regionMenu:hover {
+	display: block;
+}
+
+.regionMenu div:hover {
+	color: #3C7F44;
+	text-decoration: underline;
+}
+
+/**********************************************************************/
+/* 기간 메뉴 */
+.timeMenu {
+	background: white;
+	height: auto;
+	position: absolute;
+	width: 150px;
+	z-index: 200;
+	border: 2px solid #f1f1f1;
+	font-family: 맑은 고딕;
+	cursor: pointer;
+	margin-left: 170px;
+	font-size: 20px;
+	text-align: center;
+	display: none;
+	margin-top: -182px;
+	font-weight: bold;
+}
+
+.timeMenu div {
+	height: 40px;
+	padding-top: 5px;
+}
+
+.timeBtn:hover+.timeMenu {
+	display: block;
+}
+
+.timeMenu:hover {
+	display: block;
+}
+
+.timeMenu div:hover {
+	color: #3C7F44;
+	text-decoration: underline;
+}
+
+/**********************************************************************/
+/* 관심목록 메뉴 */
+.intMenu {
+	background: white;
+	height: auto;
+	position: absolute;
+	width: 175px;
+	z-index: 200;
+	border: 2px solid #f1f1f1;
+	font-family: 맑은 고딕;
+	margin-left: 330px;
+	display: none;
+}
+
+.intMenu div {
+	height: 60px;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 12px;
+}
+
+.intBtn:hover+.intMenu {
+	display: block;
+}
+
+.intMenu:hover {
+	display: block;
+}
+
+.intMenu div:hover {
+	background-color: #f1f1f1;
+	color: #3C7F44;
+}
+
+/* footer */
+
+.contentBoth {
+    display: flex;
+}
+.contentLeft {
+    flex: 1;
+}
+.contentRight {
+  
+    flex: 1;
+    position:relative;
+    /* width: auto; */
+}
+
+.contentRight>div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -150px;
+    /* width: 300px; */
+    /* height: 144px; */
+}

@@ -1,0 +1,18 @@
+@charset "UTF-8";
+.contentBoth {
+	color: #747474;
+	display: flex;
+}
+
+.contentLeft {
+	flex: 3;
+	text-align: left;
+}
+
+.contentRight {
+	flex: 1;
+}
+
+.contentRight {
+	margin-top: 20px;
+}

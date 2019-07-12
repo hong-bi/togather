@@ -1,0 +1,67 @@
+Tiles 사용법
+
+참고 https://www.carrot-i.com/community/knowledge/detail;jsessionid=13866F093AB519B7E97819F65A057F8D?kar_seq=2088&kct_seq=&editMode=
+
+1. /web-inf/tiles/layout/tiles.xml
+
+-> 기본 틀로 사용할 타일즈를 설정한다.
+
+ex)
+<!-- 로그인전 타일즈 -->
+	<definition name="default1"
+		template="/WEB-INF/tiles/layout/index-layout.jsp">
+		<put-attribute name="header"
+			value="/WEB-INF/tiles/layout/header_bf.jsp" />
+		<put-attribute name="nevigator"
+			value="/WEB-INF/tiles/layout/nevigator.jsp" />
+		<put-attribute name="footer"
+			value="/WEB-INF/tiles/layout/footer.jsp" />
+	</definition>
+
+
+
+1) definition name : 틀의 이름 지정 
+    template : 기본 틀로 사용할 jsp파일 경로 지정
+
+2) put-attribute name : 틀 안에 들어갈 구성요소의 이름 지정 
+   value : 구성요소jsp 파일의 경로
+
+
+
+2. dispatcher에 의해 컨트롤러와 연결되는 타일즈 패턴 설정
+
+<!-- 메인페이지 content부분 -->
+	<definition name="main/*" extends="default1">
+		<put-attribute name="content"
+			value="/WEB-INF/views/main/{1}.jsp" />
+	</definition>
+
+1) definition name : controller가 리턴해주는 주소명 패턴 .
+    extends="default1" : 사용할 타일즈 패턴의 이름을 명시
+    <put-attribute name="content"
+			value="/WEB-INF/views/main/{1}.jsp" />
+
+    : 타일즈에 변경될 부분을 선언. 패턴뒤에 {1}은 위에 main/*부분이 매핑된다.
+
+
+3. 기본이 되는 타일즈 파일
+- /WEB-INF/tiles/layout/index-layout.jsp의 경우
+
+*** 반드시 상단부분에 타일즈를 사용하기위해
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %> 선언
+
+1)타일즈로 끼워넣을 부분의 jsp 선언
+
+<tiles:insertAttribute name="nevigator" />
+
+위의 xml에서 선언해주엇던 네임을 기입한다.
+
+4. controller 
+
+실행을 위해 리턴해주는 이름을 기본이 되는 타일즈파일로 설정.
+
+
+단계는 끝났고 이제 실행해보자.
+
+
+

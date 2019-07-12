@@ -1,0 +1,32 @@
+@charset "UTF-8";
+.col-md-12 {
+    padding: 0px;
+}
+
+
+.logo {
+	/* background-color: blue; */
+	border-color: blue;
+	border-style: solid;
+}
+
+.category {
+	/* background-color: gray; */
+	border-color: gray;
+	border-style: solid;
+}
+
+.content>.content {
+	/* background-color: orange ; */
+	border-color: orange;
+	border-style: solid;
+}
+
+.footer .content {
+	/* background-color: black; */
+	border-color: black;
+	border-style: solid;
+}
+
+
+

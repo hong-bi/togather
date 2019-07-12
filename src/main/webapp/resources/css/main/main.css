@@ -1,0 +1,226 @@
+@charset "UTF-8";
+
+
+/* images--------------------------------------------- */
+.img-excla {
+	width: 20px;
+	height: 20px;
+}
+.img-ques {
+	width: 18px; 
+	height: 18px;
+	padding-bottom: 3px;
+}
+/* ---------------------------------------------images */
+
+/* slideshow------------------------------------------ */
+.slideshow {box-sizing: border-box}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1140px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prevslide, .nextslide {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.nextslide {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prevslide:hover, .nextslide:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* The dots/bullets/indicators */
+.dot-container {
+	text-align: center;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fadeslide {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+/* ------------------------------------------slideshow */
+
+/* LoginListsTooltip.jsp--------------------------------------------- */
+.nickname-container {
+	width: 1140px;	
+}
+.user-nickname{
+	display: flex;
+	flex-direction: row-reverse;
+	font-size: 20px;
+	padding: 20px;
+}
+.nickname {
+	margin-top: :13px;
+	font-weight: bold;
+}
+.alert {
+	padding: 0px;
+	margin-left: 10px;
+}
+
+.list-title {
+	width: 1100px;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+}
+.list-more-href {
+	padding-top: 15px;
+}
+.d-day {
+	color: red;
+	text-align: center;
+}
+.login-list > .table {
+	width: 1130px;
+	text-align: center;
+}
+.list-table td {
+	font-size: 13px;
+}
+
+.post-preview-wrapper {
+	display: flex;
+	justify-content: space-between;
+	width: 1063px;
+	margin: 20px;
+}
+.post-preview {
+	margin: 0px;
+	width: 250px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.listName {
+	display: flex;
+	justify-content: flex-start;
+	font-size: 25px;
+	padding-bottom: 5px;
+}
+.post-preview-img {
+	width: 250px;
+	height: 250px;
+}
+.post-title {
+	font-size: 18px;
+}
+.post-desc {
+	width: 250px;
+	text-align: center;
+}
+/* ---------------------------------------------LoginListsTooltip.jsp */
+
+
+/* LoginListMoreTravel.jsp */
+.list-more {
+	width: 700px;
+}
+
+.list-more > .table {
+	width: 700px;
+}
+.more-container {
+	display: flex;
+	flex-direction: center;
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+.page-link {
+	color: #3c7f44;
+}
+.page-item.active .page-link{
+	background-color: #3c7f44;
+	border-color: #3c7f44;
+}
+
+
+.pagination {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #3c7f44;
+}
+
+.page-item {
+  float: left;
+  border-right:1px solid #3c7f44;
+}
+
+.page-item:last-child {
+  border-right: none;
+}
+
+.page-item a {
+  display: block;
+  color: #3c7f44;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.page-item a:hover:not(.active) {
+  background-color: #3c7f44;
+}
+
+
+
+
+
+

@@ -1,0 +1,221 @@
+@import
+	url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap')
+	;
+
+.section-content {
+    margin-top: 50px;
+    width: 1140px
+}
+.row.content {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.arrayflex {
+	display: flex;
+}
+
+.margin20 {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.alert {
+	color: red;
+	height: 20px;
+	display: none;
+}
+/* 제목부분 */
+.head {
+	width: 1140px;
+	height: 50px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	line-height: 50px;
+}
+
+.content.title {
+	font-size: 20pt;
+}
+
+.content.guide {
+	font-size: 15pt;
+	/* line-height: 3em; */
+	text-align: right;
+}
+
+/*section1 */
+.body.section1 {
+	width: 100%;
+	display: flex;
+}
+
+.sec.write {
+	/* width: 50%; */
+	/* display: flex; */
+	flex: none;
+	width: 660px;
+}
+
+.position {
+	margin: 20px 20px 20px 0px;
+}
+
+.position.position1 {
+	display: flex;
+}
+
+.subtitle {
+	font-size: 16pt;
+	flex: none;
+}
+
+.text {
+	margin-left: 30px;
+	width: 500px;
+}
+
+.sec.image {
+	flex: none;
+	width: 480px;
+	height: 328px;
+	line-height: 328px;
+	text-align: center;
+}
+
+.imgfile>img {
+	width: 280px;
+	height: 280px;
+}
+/* 버튼관련 css */
+.btn-group label {
+	color: #848484;
+	border: 2px solid;
+	width: 130px;
+}
+
+.btn.b1 {
+	width: 120px;
+	margin-right: 50px;
+}
+
+/* .btn:hover {
+	background-color: #3C7F44;
+	color: white;
+} */
+
+button#moreInf {
+    color: #fff;
+    background-color: #3c7f44;
+    border-color: #3c7f44;
+}
+
+.sec.category {
+	width: 100%;
+	/* margin: 20px 20px; */
+	padding-top: 20px;
+	padding-bottom: 20px;
+	display: flex;
+}
+
+.con-name {
+	font-size: 14pt;
+	height: 40px;
+	line-height: 40px;
+	margin-right: 30px;
+	margin-left: 30px;
+	flex: none;
+}
+
+.condition>.subtitle {
+	height: 294px;
+	/* inline-size: 294px; */
+	line-height: 294px;
+}
+
+.etctext {
+	width: 500px;
+}
+
+.sec.condition {
+	width: 100%;
+	display: flex;
+}
+
+.startAndEnd.arrayflex {
+	margin-left: 20px;
+}
+
+.sec.period.arrayflex {
+	margin: 40px 0px 40px 0px;
+}
+
+.sec.insert {
+	display: flex;
+	width: 1140px;
+}
+
+.sec.insert>.subtitle {
+	flex: 1;
+}
+
+.step {
+	flex: 1;
+	font-size: 16pt;
+	text-align: center;
+}
+
+.insertform {
+	flex: 4;
+}
+
+.insert-address {
+	display: flex;
+}
+
+.smtitle {
+	flex: 1;
+	font-size: 16pt;
+	text-align: center;
+}
+
+.input-group-prepend {
+	flex: 3;
+}
+
+.exp-form {
+	flex: 3;
+}
+
+.insert-explanation.arrayflex {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.insert-icons {
+	text-align: center;
+}
+
+input.form-control {
+    width: 400px;
+}
+.insert-icons>.btn {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.moreInfBox {
+	text-align: center;
+	width: 1140px;
+}
+
+.submitButton {
+    width: 1140px;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.submitButton>button {
+    margin-left: 30px;
+    margin-right: 30px;
+}
