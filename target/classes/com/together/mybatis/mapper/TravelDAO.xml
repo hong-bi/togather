@@ -31,7 +31,7 @@
   	</select>
   	
   	<select id="tCityEnd" parameterType="java.lang.Integer" resultType="com.together.web.category.TravelDTO">
-  		SELECT REGION AS REGION_START, CITY AS CITY_START
+  		SELECT REGION AS REGION_END, CITY AS CITY_END
 		FROM T_CITY
 		WHERE T_REGIONCODE = 
 		(SELECT MAX(T_REGIONCODE) FROM T_REGION	WHERE TRAVELCODE = #{travelCode} )				

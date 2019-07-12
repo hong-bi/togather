@@ -68,7 +68,7 @@
 							<div>
 							<!-- 짤렸어 확인해 -->
 								<span class="postContent">
-									${travel.region_Start }　${travel.city_Start } - ${travel.region_End }　${travel.city_End }
+									${travel.region_Start }${travel.city_Start }-${travel.region_End }${travel.city_End }
 								</span>
 							</div>
 							<div>

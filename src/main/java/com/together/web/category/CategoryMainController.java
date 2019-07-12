@@ -39,7 +39,7 @@ public class CategoryMainController {
 			
 			TravelDTO end = dao.tCityEnd(travel.getTravelCode());
 			travel.setRegion_End(end.getRegion_End());
-			travel.setCity_End(end.getCity_End());		
+			travel.setCity_End(end.getCity_End());	
 			
 		}
 		
