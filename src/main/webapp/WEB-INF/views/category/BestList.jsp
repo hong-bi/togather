@@ -1,13 +1,18 @@
+<%@page import="com.together.web.BoardPager"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="java.util.Date" %>
 <%@page import="java.text.SimpleDateFormat" %>
 <%
-
-	Date now = new Date();
-	SimpleDateFormat sf = new SimpleDateFormat("yyyy년MM월dd일 E요일");
-
+	BoardPager paging = new BoardPager();
+	
+	int dataCount =(Integer)request.getAttribute("totalNum");
+	int numPerPage = 16;
+	int total_page = paging.getPageCount(numPerPage, dataCount);
+	
+	if()
 %>
+
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <link href="<c:url value="/resources/css/public.css" />" rel="stylesheet" type="text/css">

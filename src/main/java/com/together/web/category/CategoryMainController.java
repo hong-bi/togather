@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class CategoryMainController {
 	@Autowired
@@ -20,6 +21,8 @@ public class CategoryMainController {
 	/* @RequestMapping(value = "/bestlist.do") */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String bestList(ModelMap model) throws IOException {
+			
+		
 		ITravelDAO dao = sqlSession.getMapper(ITravelDAO.class);
 
 		int totalNum = 0;
@@ -41,12 +44,18 @@ public class CategoryMainController {
 			travel.setRegion_End(end.getRegion_End());
 			travel.setCity_End(end.getCity_End());	
 			
-			System.out.println(travel.getImg());
-			
 		}
 		
 		model.addAttribute("travelList", list);
+		
+	
 
+		
+		
+		
+		
+		
+		
 		return "category/BestList";
 
 	}
