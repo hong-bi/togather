@@ -11,12 +11,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class MainController {
 	// 진입하자마자 메인페이지로 연결
-	/*
-	 * @RequestMapping(value = "/", method = RequestMethod.GET) public String
-	 * beforeLoginMain(Locale locale, Model model) { return "home";
-	 * System.out.println("진입"); return "main/before/beforeLogin"; return
-	 * "bestlist.do"; }
-	 */
+
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String beforeLoginMain(Locale locale, Model model) 
+	{
+		return "";
+	}
+
 	/*
 	 * // header에서 로고 눌렀을 때 메인페이지로 연결
 	 * 

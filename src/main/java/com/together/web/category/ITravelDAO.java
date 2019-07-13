@@ -10,7 +10,7 @@ public interface ITravelDAO {
 	public int nowRecruitTravelNum();
 	
 	// 현재 모집중인 게시물의 travelcode, title, 작가닉네임, 여행시작, 여행끝, 모집마감일, 이미지
-	public ArrayList<TravelDTO> travelInfoBasic(); 
+	public ArrayList<TravelDTO> travelInfoBasic(String orderBy); 
 	
 	// 현재 모집중인 게시물의 themaType 
 	public ArrayList<String> tThemaType(int travelCode);

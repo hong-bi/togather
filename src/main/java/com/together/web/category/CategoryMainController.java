@@ -13,23 +13,41 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.together.web.login.IUserDAO;
 @Controller
 public class CategoryMainController {
 	@Autowired
 	private SqlSession sqlSession;
 
 	/* @RequestMapping(value = "/bestlist.do") */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String bestList(ModelMap model) throws IOException {
-			
-		
+	@RequestMapping(value = "/bestlist.do", produces = "application/text; charset=utf8", method = RequestMethod.GET)
+	public String bestList() throws IOException {
+				
+		return "category/BestList";
+	}
+	
+	@RequestMapping(value = "/selectbest.do")
+	public ArrayList<TravelDTO> selectBest(String selectValue,ModelMap model, HttpServletResponse response) throws IOException
+	{
 		ITravelDAO dao = sqlSession.getMapper(ITravelDAO.class);
-
+		
 		int totalNum = 0;
 		totalNum = dao.nowRecruitTravelNum();
 		model.addAttribute("totalNum", totalNum);
+		// 1 최신 2 조회 3 찜 4 인기작가
 		
-		ArrayList<TravelDTO> list = dao.travelInfoBasic();
+		String orderBy = "";
+		if(selectValue.equals("1"))
+			orderBy = "RECRUIT_END";
+		else if(selectValue.equals("2"))
+			orderBy = "VIEWNUM";
+		else if(selectValue.equals("3"))
+			orderBy = "T_JJIM";
+		else if(selectValue.equals("4"))
+			orderBy = "W_JJIM";		
+		
+		ArrayList<TravelDTO> list = dao.travelInfoBasic(orderBy);
 		
 		for(TravelDTO travel : list)
 		{
@@ -46,18 +64,14 @@ public class CategoryMainController {
 			
 		}
 		
-		model.addAttribute("travelList", list);
+			
 		
+		return list;		
+		
+	}
+	
 	
 
-		
-		
-		
-		
-		
-		
-		return "category/BestList";
 
-	}
 
 }

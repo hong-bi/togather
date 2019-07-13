@@ -4,13 +4,8 @@
 <%@page import="java.util.Date" %>
 <%@page import="java.text.SimpleDateFormat" %>
 <%
-	BoardPager paging = new BoardPager();
-	
-	int dataCount =(Integer)request.getAttribute("totalNum");
-	int numPerPage = 16;
-	int total_page = paging.getPageCount(numPerPage, dataCount);
-	
-	if()
+	request.setCharacterEncoding("UTF-8");
+	String cp = request.getContextPath();
 %>
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -26,11 +21,12 @@
 		<div style="float: right;">
 			<div style="width: 100px; height: 35px; margin-top: 20px;">
 				<select class="custom-select"
-					style="width: 120px; height: 35px; font-size: 11pt; float: right; bottom: 0px;">
-					<option selected>최신순</option>
-					<option value="1">조회순</option>
-					<option value="2">찜많은순</option>
-					<option value="3">인기작가순</option>
+					style="width: 120px; height: 35px; font-size: 11pt; float: right; bottom: 0px;"
+					id ="selectBest" name="selectBest">
+					<option value="1" selected="selected">최신순</option>
+					<option value="2">조회순</option>
+					<option value="3">찜많은순</option>
+					<option value="4">인기작가순</option>
 				</select>
 			</div>
 		</div>
@@ -127,5 +123,30 @@
 	function change2(obj) {
 		obj.style.color = 'gray';
 	}
+	
+	
+
+	$("#selectBest").change(function() {
+		var selectValue = $("#selectBest").val();
+						
+		$.ajax({
+			url : "<%=cp%>/selectbest.do",
+			type : "post",
+			data : {'selectValue':selectValue},
+			success: function(list) {
+				
+			}
+			
+		});
+	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </script>
 
