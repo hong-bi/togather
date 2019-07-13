@@ -2,8 +2,10 @@ package com.together.web.category;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
@@ -21,15 +23,9 @@ public class CategoryMainController {
 	private SqlSession sqlSession;
 
 	/* @RequestMapping(value = "/bestlist.do") */
-	@RequestMapping(value = "/bestlist.do", produces = "application/text; charset=utf8", method = RequestMethod.GET)
-	public String bestList() throws IOException {
-				
-		return "category/BestList";
-	}
-	
-	@RequestMapping(value = "/selectbest.do")
-	public ArrayList<TravelDTO> selectBest(String selectValue,ModelMap model, HttpServletResponse response) throws IOException
-	{
+	@RequestMapping(value = "/bestlist.do", method = RequestMethod.GET)
+	public String bestList(ModelMap model
+			, @RequestParam(name="selectValue", defaultValue="1") String selectValue) throws IOException {
 		ITravelDAO dao = sqlSession.getMapper(ITravelDAO.class);
 		
 		int totalNum = 0;
@@ -37,15 +33,19 @@ public class CategoryMainController {
 		model.addAttribute("totalNum", totalNum);
 		// 1 최신 2 조회 3 찜 4 인기작가
 		
+		System.out.println("*"+selectValue);
+		
 		String orderBy = "";
+				
 		if(selectValue.equals("1"))
 			orderBy = "RECRUIT_END";
 		else if(selectValue.equals("2"))
 			orderBy = "VIEWNUM";
-		else if(selectValue.equals("3"))
+		else if(selectValue.equals("3"))			
 			orderBy = "T_JJIM";
 		else if(selectValue.equals("4"))
 			orderBy = "W_JJIM";		
+	
 		
 		ArrayList<TravelDTO> list = dao.travelInfoBasic(orderBy);
 		
@@ -64,11 +64,11 @@ public class CategoryMainController {
 			
 		}
 		
-			
+		model.addAttribute("travelList", list);
 		
-		return list;		
-		
+		return "category/BestList";
 	}
+	
 	
 	
 

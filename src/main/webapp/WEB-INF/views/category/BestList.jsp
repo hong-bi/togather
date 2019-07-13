@@ -127,17 +127,12 @@
 	
 
 	$("#selectBest").change(function() {
+		
 		var selectValue = $("#selectBest").val();
+		
+		location.href="<%=cp %>/bestlist.do?selectValue="+selectValue;
 						
-		$.ajax({
-			url : "<%=cp%>/selectbest.do",
-			type : "post",
-			data : {'selectValue':selectValue},
-			success: function(list) {
-				
-			}
-			
-		});
+		
 	});
 	
 	

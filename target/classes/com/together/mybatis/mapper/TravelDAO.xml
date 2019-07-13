@@ -16,7 +16,9 @@
   			, IMG
 		FROM BEST_VIEW
 		ORDER BY RATIO DESC, #{orderBy} DESC
-  	</select>
+  	</select>  	
+  	
+  
   	
   	<select id="tThemaType" parameterType="java.lang.Integer" resultType="java.lang.String">
   		SELECT THEMATYPE
