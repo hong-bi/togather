@@ -8,7 +8,9 @@ public class TravelDTO {
 	
 	String recruit_Start, recruit_End, t_Start, t_End, title, intro, nickName, city_Start, city_End
 	, region_Start, region_End, img;
-
+	
+	String orderBy;
+	String orderNum;
 	
 	int[] themaCode;
 	ArrayList<String> themaType;
@@ -136,9 +138,23 @@ public class TravelDTO {
 	public void setImg(String img) {
 		this.img = img;
 	}
-	
-	
+	public String getOrderBy() {
+		return orderBy;
+	}
+	public void setOrderBy(String orderBy) {
+		this.orderBy = orderBy;
+	}
+	public String getOrderNum() {
+		return orderNum;
+	}
+	public void setOrderNum(String orderNum) {
+		this.orderNum = orderNum;
+	}
 
+	
+	
+	
+	
 	
 	
 	

@@ -45,7 +45,7 @@ public class CategoryMainController {
 			orderBy = "T_JJIM";
 		else if(selectValue.equals("4"))
 			orderBy = "W_JJIM";		
-	
+		
 		
 		ArrayList<TravelDTO> list = dao.travelInfoBasic(orderBy);
 		
@@ -65,13 +65,335 @@ public class CategoryMainController {
 		}
 		
 		model.addAttribute("travelList", list);
+		model.addAttribute("selectValue", selectValue);
 		
 		return "category/BestList";
 	}
 	
 	
 	
+	@RequestMapping(value = "/themalistall.do", method = RequestMethod.GET)
+	public String themaListAll(ModelMap model
+			, @RequestParam(name="selectValue" ,defaultValue="1") String selectValue) throws IOException {
+		ITravelDAO dao = sqlSession.getMapper(ITravelDAO.class);
+		
+		int totalNum = 0;
+		totalNum = dao.nowRecruitTravelNum();
+		model.addAttribute("totalNum", totalNum);
+		
+		System.out.println("*"+selectValue);		
+		// 최신 인기 조회 찜 인기작가 여행시작
+		TravelDTO dto = new TravelDTO();
+		if (selectValue.equals("1"))
+			dto.setOrderBy("RECRUIT_END DESC");
+		else if(selectValue.equals("2"))
+			dto.setOrderBy("RATIO DESC");	
+		else if(selectValue.equals("3"))	
+			dto.setOrderBy("VIEWNUM DESC");	
+		else if(selectValue.equals("4"))
+			dto.setOrderBy("T_JJIM DESC");		
+		else if(selectValue.equals("5"))
+			dto.setOrderBy("W_JJIM DESC");		
+		else if(selectValue.equals("6"))
+			dto.setOrderBy("T_START");	
+		
+		ArrayList<TravelDTO> list = dao.themaAll(dto);
+		
+		for(TravelDTO travel : list)
+		{
+			ArrayList<String> themaType = dao.tThemaType(travel.getTravelCode());
+			travel.setThemaType(themaType);
+			
+			TravelDTO start = dao.tCityStart(travel.getTravelCode());
+			travel.setRegion_Start(start.getRegion_Start());
+			travel.setCity_Start(start.getCity_Start());
+			
+			TravelDTO end = dao.tCityEnd(travel.getTravelCode());
+			travel.setRegion_End(end.getRegion_End());
+			travel.setCity_End(end.getCity_End());	
+			
+		}
+		
+		model.addAttribute("travelList", list);
+		
+		
+		model.addAttribute("selectValue", selectValue);
+		
+		
+		
+		return "category/ThemeListAll";
+	}
+	
+	
+	@RequestMapping(value = "/themalistnature.do", method = RequestMethod.GET)
+	public String themaListNature(ModelMap model
+			, @RequestParam(name="selectValue" ,defaultValue="1") String selectValue) throws IOException {
+		ITravelDAO dao = sqlSession.getMapper(ITravelDAO.class);
+		TravelDTO dto = new TravelDTO();
+		
+		int totalNum = 0;
+		dto.setOrderNum("1");
+		totalNum = dao.themaNum(dto);
+		model.addAttribute("totalNum", totalNum);
+		
+		System.out.println("*"+selectValue);		
+		// 최신 인기 조회 찜 인기작가 여행시작
+		
+		if (selectValue.equals("1"))
+			dto.setOrderBy("RECRUIT_END DESC");
+		else if(selectValue.equals("2"))
+			dto.setOrderBy("RATIO DESC");	
+		else if(selectValue.equals("3"))	
+			dto.setOrderBy("VIEWNUM DESC");	
+		else if(selectValue.equals("4"))
+			dto.setOrderBy("T_JJIM DESC");		
+		else if(selectValue.equals("5"))
+			dto.setOrderBy("W_JJIM DESC");		
+		else if(selectValue.equals("6"))
+			dto.setOrderBy("T_START");	
+		
+		ArrayList<TravelDTO> list = dao.themalist(dto);
+		
+		for(TravelDTO travel : list)
+		{
+			ArrayList<String> themaType = dao.tThemaType(travel.getTravelCode());
+			travel.setThemaType(themaType);
+			
+			TravelDTO start = dao.tCityStart(travel.getTravelCode());
+			travel.setRegion_Start(start.getRegion_Start());
+			travel.setCity_Start(start.getCity_Start());
+			
+			TravelDTO end = dao.tCityEnd(travel.getTravelCode());
+			travel.setRegion_End(end.getRegion_End());
+			travel.setCity_End(end.getCity_End());	
+			
+		}
+		
+		model.addAttribute("travelList", list);
+		
+		
+		model.addAttribute("selectValue", selectValue);
+		
+		
+		
+		return "category/ThemeListNature";
+	}
+	
 
+	@RequestMapping(value = "/themalistct.do", method = RequestMethod.GET)
+	public String themaListCT(ModelMap model
+			, @RequestParam(name="selectValue" ,defaultValue="1") String selectValue) throws IOException {
+		ITravelDAO dao = sqlSession.getMapper(ITravelDAO.class);
+		TravelDTO dto = new TravelDTO();
+		
+		int totalNum = 0;
+		dto.setOrderNum("2");
+		totalNum = dao.themaNum(dto);
+		model.addAttribute("totalNum", totalNum);
+		
+		System.out.println("*"+selectValue);		
+		// 최신 인기 조회 찜 인기작가 여행시작
+		
+		if (selectValue.equals("1"))
+			dto.setOrderBy("RECRUIT_END DESC");
+		else if(selectValue.equals("2"))
+			dto.setOrderBy("RATIO DESC");	
+		else if(selectValue.equals("3"))	
+			dto.setOrderBy("VIEWNUM DESC");	
+		else if(selectValue.equals("4"))
+			dto.setOrderBy("T_JJIM DESC");		
+		else if(selectValue.equals("5"))
+			dto.setOrderBy("W_JJIM DESC");		
+		else if(selectValue.equals("6"))
+			dto.setOrderBy("T_START");	
+		
+		ArrayList<TravelDTO> list = dao.themalist(dto);
+		
+		for(TravelDTO travel : list)
+		{
+			ArrayList<String> themaType = dao.tThemaType(travel.getTravelCode());
+			travel.setThemaType(themaType);
+			
+			TravelDTO start = dao.tCityStart(travel.getTravelCode());
+			travel.setRegion_Start(start.getRegion_Start());
+			travel.setCity_Start(start.getCity_Start());
+			
+			TravelDTO end = dao.tCityEnd(travel.getTravelCode());
+			travel.setRegion_End(end.getRegion_End());
+			travel.setCity_End(end.getCity_End());	
+			
+		}
+		
+		model.addAttribute("travelList", list);
+		
+		
+		model.addAttribute("selectValue", selectValue);
+		
+		
+		
+		return "category/ThemeListCT";
+	}
+	
+	@RequestMapping(value = "/themalistls.do", method = RequestMethod.GET)
+	public String themaListLS(ModelMap model
+			, @RequestParam(name="selectValue" ,defaultValue="1") String selectValue) throws IOException {
+		ITravelDAO dao = sqlSession.getMapper(ITravelDAO.class);
+		TravelDTO dto = new TravelDTO();
+		
+		int totalNum = 0;
+		dto.setOrderNum("3");
+		totalNum = dao.themaNum(dto);
+		model.addAttribute("totalNum", totalNum);
+		
+		System.out.println("*"+selectValue);		
+		// 최신 인기 조회 찜 인기작가 여행시작
+		
+		if (selectValue.equals("1"))
+			dto.setOrderBy("RECRUIT_END DESC");
+		else if(selectValue.equals("2"))
+			dto.setOrderBy("RATIO DESC");	
+		else if(selectValue.equals("3"))	
+			dto.setOrderBy("VIEWNUM DESC");	
+		else if(selectValue.equals("4"))
+			dto.setOrderBy("T_JJIM DESC");		
+		else if(selectValue.equals("5"))
+			dto.setOrderBy("W_JJIM DESC");		
+		else if(selectValue.equals("6"))
+			dto.setOrderBy("T_START");	
+		
+		ArrayList<TravelDTO> list = dao.themalist(dto);
+		
+		for(TravelDTO travel : list)
+		{
+			ArrayList<String> themaType = dao.tThemaType(travel.getTravelCode());
+			travel.setThemaType(themaType);
+			
+			TravelDTO start = dao.tCityStart(travel.getTravelCode());
+			travel.setRegion_Start(start.getRegion_Start());
+			travel.setCity_Start(start.getCity_Start());
+			
+			TravelDTO end = dao.tCityEnd(travel.getTravelCode());
+			travel.setRegion_End(end.getRegion_End());
+			travel.setCity_End(end.getCity_End());	
+			
+		}
+		
+		model.addAttribute("travelList", list);
+		
+		
+		model.addAttribute("selectValue", selectValue);
+		
+		
+		
+		return "category/ThemeListLS";
+	}
+	
+	@RequestMapping(value = "/themalistsf.do", method = RequestMethod.GET)
+	public String themaListSF(ModelMap model
+			, @RequestParam(name="selectValue" ,defaultValue="1") String selectValue) throws IOException {
+		ITravelDAO dao = sqlSession.getMapper(ITravelDAO.class);
+		TravelDTO dto = new TravelDTO();
+		
+		int totalNum = 0;
+		dto.setOrderNum("4,5");
+		totalNum = dao.themaNum(dto);
+		model.addAttribute("totalNum", totalNum);
+		
+		System.out.println("*"+selectValue);		
+		// 최신 인기 조회 찜 인기작가 여행시작
+		
+		if (selectValue.equals("1"))
+			dto.setOrderBy("RECRUIT_END DESC");
+		else if(selectValue.equals("2"))
+			dto.setOrderBy("RATIO DESC");	
+		else if(selectValue.equals("3"))	
+			dto.setOrderBy("VIEWNUM DESC");	
+		else if(selectValue.equals("4"))
+			dto.setOrderBy("T_JJIM DESC");		
+		else if(selectValue.equals("5"))
+			dto.setOrderBy("W_JJIM DESC");		
+		else if(selectValue.equals("6"))
+			dto.setOrderBy("T_START");	
+		
+		ArrayList<TravelDTO> list = dao.themalist(dto);
+		
+		for(TravelDTO travel : list)
+		{
+			ArrayList<String> themaType = dao.tThemaType(travel.getTravelCode());
+			travel.setThemaType(themaType);
+			
+			TravelDTO start = dao.tCityStart(travel.getTravelCode());
+			travel.setRegion_Start(start.getRegion_Start());
+			travel.setCity_Start(start.getCity_Start());
+			
+			TravelDTO end = dao.tCityEnd(travel.getTravelCode());
+			travel.setRegion_End(end.getRegion_End());
+			travel.setCity_End(end.getCity_End());	
+			
+		}
+		
+		model.addAttribute("travelList", list);
+		
+		
+		model.addAttribute("selectValue", selectValue);
+		
+		
+		
+		return "category/ThemeListSF";
+	}
 
+	@RequestMapping(value = "/themalistother.do", method = RequestMethod.GET)
+	public String themaListOther(ModelMap model
+			, @RequestParam(name="selectValue" ,defaultValue="1") String selectValue) throws IOException {
+		ITravelDAO dao = sqlSession.getMapper(ITravelDAO.class);
+		TravelDTO dto = new TravelDTO();
+		
+		int totalNum = 0;
+		dto.setOrderNum("6");
+		totalNum = dao.themaNum(dto);
+		model.addAttribute("totalNum", totalNum);
+		
+		System.out.println("*"+selectValue);		
+		// 최신 인기 조회 찜 인기작가 여행시작
+		
+		if (selectValue.equals("1"))
+			dto.setOrderBy("RECRUIT_END DESC");
+		else if(selectValue.equals("2"))
+			dto.setOrderBy("RATIO DESC");	
+		else if(selectValue.equals("3"))	
+			dto.setOrderBy("VIEWNUM DESC");	
+		else if(selectValue.equals("4"))
+			dto.setOrderBy("T_JJIM DESC");		
+		else if(selectValue.equals("5"))
+			dto.setOrderBy("W_JJIM DESC");		
+		else if(selectValue.equals("6"))
+			dto.setOrderBy("T_START");	
+		
+		ArrayList<TravelDTO> list = dao.themalist(dto);
+		
+		for(TravelDTO travel : list)
+		{
+			ArrayList<String> themaType = dao.tThemaType(travel.getTravelCode());
+			travel.setThemaType(themaType);
+			
+			TravelDTO start = dao.tCityStart(travel.getTravelCode());
+			travel.setRegion_Start(start.getRegion_Start());
+			travel.setCity_Start(start.getCity_Start());
+			
+			TravelDTO end = dao.tCityEnd(travel.getTravelCode());
+			travel.setRegion_End(end.getRegion_End());
+			travel.setCity_End(end.getCity_End());	
+			
+		}
+		
+		model.addAttribute("travelList", list);
+		
+		
+		model.addAttribute("selectValue", selectValue);
+		
+		
+		
+		return "category/ThemeListOther";
+	}
 
 }

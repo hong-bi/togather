@@ -41,8 +41,30 @@
   	</select>
   	
   	
+  	<select id="themaAll" parameterType="com.together.web.category.TravelDTO" resultType="com.together.web.category.TravelDTO">
+  		SELECT TRAVELCODE, TITLE, NICKNAME, TO_CHAR(T_START,'YYYY-MM-DD') AS T_START
+  			,TO_CHAR(T_END,'YYYY-MM-DD') AS T_END, TO_CHAR((RECRUIT_START + 14),'YYYY-MM-DD') AS RECRUIT_END
+  			, IMG
+		FROM BEST_VIEW
+		ORDER BY ${orderBy}
+  	</select> 
+  	
+  	<select id="themaNum" parameterType="com.together.web.category.TravelDTO" resultType="java.lang.Integer">
+  		SELECT COUNT(*) FROM BEST_VIEW
+		WHERE TRAVELCODE IN (SELECT TRAVELCODE FROM T_THEMA WHERE THEMACODE IN (${orderNum}))
+  	</select>
+  	
+    <select id="themalist" parameterType="com.together.web.category.TravelDTO" resultType="com.together.web.category.TravelDTO">
+  		SELECT TRAVELCODE, TITLE, NICKNAME, TO_CHAR(T_START,'YYYY-MM-DD') AS T_START
+  			,TO_CHAR(T_END,'YYYY-MM-DD') AS T_END, TO_CHAR((RECRUIT_START + 14),'YYYY-MM-DD') AS RECRUIT_END
+  			, IMG  FROM BEST_VIEW
+		WHERE TRAVELCODE IN (SELECT TRAVELCODE FROM T_THEMA WHERE THEMACODE IN (${orderNum}))
+		ORDER BY ${orderBy}
+  	</select> 
   	
   	
-    
+  	
+ 
+  	
   
   </mapper>

@@ -19,6 +19,15 @@ public interface ITravelDAO {
 	public TravelDTO tCityStart(int travelCode);
 	public TravelDTO tCityEnd(int travelCode);
 	
+	// 테마 전체검색 -  현재 모집중인 게시물의 travelcode, title, 작가닉네임, 여행시작, 여행끝, 모집마감일, 이미지
+	public ArrayList<TravelDTO> themaAll(TravelDTO dto); 
+	
+	// 테마 선택검색
+	public ArrayList<TravelDTO> themalist(TravelDTO dto); 
+	public int themaNum(TravelDTO dto);
+	
+	
+	
 	
 	
 }

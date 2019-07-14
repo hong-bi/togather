@@ -48,23 +48,18 @@ public class MainController {
 	 * System.out.println("진입"); return "login/Login"; }
 	 * 
 	 */
-	// 전체카테고리 - 테마
-	@RequestMapping(value = "/category.do", method = RequestMethod.GET)
-	public String theme(@RequestParam(name = "value", defaultValue = "allTheme") String value) {
-		if (value.equals("allTheme"))
-			return "category/ThemeListAll";
-		else if (value.equals("nature"))
-			return "category/ThemeListNature";
-		else if (value.equals("culture"))
-			return "category/ThemeListCT";
-		else if (value.equals("sports"))
-			return "category/ThemeListLS";
-		else if (value.equals("shopping"))
-			return "category/ThemeListSF";
-		else
-			return "category/ThemeListOther";
-	}
-
+	/*
+	 * // 전체카테고리 - 테마
+	 * 
+	 * @RequestMapping(value = "/category.do", method = RequestMethod.GET) public
+	 * String theme(@RequestParam(name = "value", defaultValue = "allTheme") String
+	 * value) { if (value.equals("allTheme")) return "category/ThemeListAll"; else
+	 * if (value.equals("nature")) return "category/ThemeListNature"; else if
+	 * (value.equals("culture")) return "category/ThemeListCT"; else if
+	 * (value.equals("sports")) return "category/ThemeListLS"; else if
+	 * (value.equals("shopping")) return "category/ThemeListSF"; else return
+	 * "category/ThemeListOther"; }
+	 */
 	// 전체카테고리 - 지역
 	@RequestMapping(value = "/region.do", method = RequestMethod.GET)
 	public String region(@RequestParam(name = "value", defaultValue = "allRegion") String value) {

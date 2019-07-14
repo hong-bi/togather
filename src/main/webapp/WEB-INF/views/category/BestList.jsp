@@ -23,7 +23,7 @@
 				<select class="custom-select"
 					style="width: 120px; height: 35px; font-size: 11pt; float: right; bottom: 0px;"
 					id ="selectBest" name="selectBest">
-					<option value="1" selected="selected">최신순</option>
+					<option value="1">최신순</option>
 					<option value="2">조회순</option>
 					<option value="3">찜많은순</option>
 					<option value="4">인기작가순</option>
@@ -117,14 +117,17 @@
 
 <!-- script -->
 <script type="text/javascript">
+	
+	/* $("input:checkbox[name='selectBest']:checkbox[value='"+userThema[i]+"']").prop('checked', true); */
+	$("#selectBest").val("${selectValue}").prop("selected", true);
+
 	function change1(obj) {
 		obj.style.color = 'rgb(60,127,68)';
 	}
 	function change2(obj) {
 		obj.style.color = 'gray';
 	}
-	
-	
+
 
 	$("#selectBest").change(function() {
 		
@@ -134,10 +137,6 @@
 						
 		
 	});
-	
-	
-	
-	
 	
 	
 	
