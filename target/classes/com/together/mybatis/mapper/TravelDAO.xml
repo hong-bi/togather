@@ -7,7 +7,7 @@
      
   	 <select id="nowRecruitTravelNum" resultType="java.lang.Integer">
   		SELECT COUNT(*) AS COUNT
-		FROM TRAVEL_BASIC
+		FROM BEST_VIEW
   	</select>
   	
   	<select id="travelInfoBasic" parameterType="java.lang.String" resultType="com.together.web.category.TravelDTO">
@@ -90,6 +90,19 @@
 		ORDER BY ${orderBy}
   	</select> 
   	
+  	<!-- 지역 -->
+  	<select id="regionNum" parameterType="com.together.web.category.TravelDTO" resultType="java.lang.Integer">
+  		SELECT COUNT(*) FROM BEST_VIEW
+		WHERE TRAVELCODE IN (SELECT TRAVELCODE FROM T_REGION WHERE REGIONCODE = ${orderNum})
+  	</select>
+  	
+  	<select id="regionlist" parameterType="com.together.web.category.TravelDTO" resultType="com.together.web.category.TravelDTO">
+  		SELECT TRAVELCODE, TITLE, NICKNAME, TO_CHAR(T_START,'YYYY-MM-DD') AS T_START
+  			,TO_CHAR(T_END,'YYYY-MM-DD') AS T_END, TO_CHAR((RECRUIT_START + 14),'YYYY-MM-DD') AS RECRUIT_END
+  			, IMG  FROM BEST_VIEW
+		WHERE TRAVELCODE IN (SELECT TRAVELCODE FROM T_REGION WHERE REGIONCODE = ${orderNum})
+		ORDER BY ${orderBy}
+  	</select> 
   	
   	
  

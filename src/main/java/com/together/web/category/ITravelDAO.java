@@ -34,6 +34,9 @@ public interface ITravelDAO {
 	public int periodNumOther(TravelDTO dto);
 	
 	
+	// 지역 검색
+	public ArrayList<TravelDTO> regionlist(TravelDTO dto); 
+	public int regionNum(TravelDTO dto);
 	
 	
 	
