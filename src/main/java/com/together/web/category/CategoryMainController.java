@@ -395,5 +395,308 @@ public class CategoryMainController {
 		
 		return "category/ThemeListOther";
 	}
+	
+	
+	
+	
+	// 기간 검색 - 전체 검색
+	@RequestMapping(value = "/periodlistall.do")
+	public String periodListAll(ModelMap model
+			, @RequestParam(name="selectValue" ,defaultValue="1") String selectValue) throws IOException {
+		ITravelDAO dao = sqlSession.getMapper(ITravelDAO.class);
+		
+		int totalNum = 0;
+		totalNum = dao.nowRecruitTravelNum();
+		model.addAttribute("totalNum", totalNum);
+
+		TravelDTO dto = new TravelDTO();
+		if (selectValue.equals("1"))
+			dto.setOrderBy("RECRUIT_END DESC");
+		else if(selectValue.equals("2"))
+			dto.setOrderBy("RATIO DESC");	
+		else if(selectValue.equals("3"))	
+			dto.setOrderBy("VIEWNUM DESC");	
+		else if(selectValue.equals("4"))
+			dto.setOrderBy("T_JJIM DESC");		
+		else if(selectValue.equals("5"))
+			dto.setOrderBy("W_JJIM DESC");		
+		else if(selectValue.equals("6"))
+			dto.setOrderBy("T_START");	
+		
+		ArrayList<TravelDTO> list = dao.themaAll(dto);
+		
+		for (TravelDTO travel : list) {
+	         ArrayList<String> themaType = dao.tThemaType(travel.getTravelCode());
+	         travel.setThemaType(themaType);
+
+	         TravelDTO startDTO = dao.tCityStart(travel.getTravelCode());
+	         travel.setRegion_Start(startDTO.getRegion_Start());
+	         travel.setCity_Start(startDTO.getCity_Start());
+
+	         TravelDTO endDTO = dao.tCityEnd(travel.getTravelCode());
+	         travel.setRegion_End(endDTO.getRegion_End());
+	         travel.setCity_End(endDTO.getCity_End());
+	      }
+		
+		model.addAttribute("travelList", list);
+		
+		
+		model.addAttribute("selectValue", selectValue);
+		
+		
+		
+		return "category/PeriodListAll";
+	}
+	
+	
+	// 기간 검색 - 1박2일
+	@RequestMapping(value = "/periodlist12.do")
+	public String periodList12(ModelMap model
+			, @RequestParam(name="selectValue" ,defaultValue="1") String selectValue) throws IOException {
+		ITravelDAO dao = sqlSession.getMapper(ITravelDAO.class);
+		TravelDTO dto = new TravelDTO();
+		
+		int totalNum = 0;
+		dto.setOrderNum("2");
+		totalNum = dao.periodNum(dto);
+		model.addAttribute("totalNum", totalNum);
+		
+		if (selectValue.equals("1"))
+			dto.setOrderBy("RECRUIT_END DESC");
+		else if(selectValue.equals("2"))
+			dto.setOrderBy("RATIO DESC");	
+		else if(selectValue.equals("3"))	
+			dto.setOrderBy("VIEWNUM DESC");	
+		else if(selectValue.equals("4"))
+			dto.setOrderBy("T_JJIM DESC");		
+		else if(selectValue.equals("5"))
+			dto.setOrderBy("W_JJIM DESC");		
+		else if(selectValue.equals("6"))
+			dto.setOrderBy("T_START");	
+		
+		ArrayList<TravelDTO> list = dao.periodlist(dto);
+		
+		for (TravelDTO travel : list) {
+	         ArrayList<String> themaType = dao.tThemaType(travel.getTravelCode());
+	         travel.setThemaType(themaType);
+
+	         TravelDTO startDTO = dao.tCityStart(travel.getTravelCode());
+	         travel.setRegion_Start(startDTO.getRegion_Start());
+	         travel.setCity_Start(startDTO.getCity_Start());
+
+	         TravelDTO endDTO = dao.tCityEnd(travel.getTravelCode());
+	         travel.setRegion_End(endDTO.getRegion_End());
+	         travel.setCity_End(endDTO.getCity_End());
+	      }
+		
+		model.addAttribute("travelList", list);
+		
+		
+		model.addAttribute("selectValue", selectValue);
+		
+		
+		
+		return "category/PeriodList12";
+	}
+	
+	// 기간 검색 - 2박 3일
+	@RequestMapping(value = "/periodlist23.do")
+	public String periodList23(ModelMap model
+			, @RequestParam(name="selectValue" ,defaultValue="1") String selectValue) throws IOException {
+		ITravelDAO dao = sqlSession.getMapper(ITravelDAO.class);
+		TravelDTO dto = new TravelDTO();
+		
+		int totalNum = 0;
+		dto.setOrderNum("3");
+		totalNum = dao.periodNum(dto);
+		model.addAttribute("totalNum", totalNum);
+		
+		if (selectValue.equals("1"))
+			dto.setOrderBy("RECRUIT_END DESC");
+		else if(selectValue.equals("2"))
+			dto.setOrderBy("RATIO DESC");	
+		else if(selectValue.equals("3"))	
+			dto.setOrderBy("VIEWNUM DESC");	
+		else if(selectValue.equals("4"))
+			dto.setOrderBy("T_JJIM DESC");		
+		else if(selectValue.equals("5"))
+			dto.setOrderBy("W_JJIM DESC");		
+		else if(selectValue.equals("6"))
+			dto.setOrderBy("T_START");	
+		
+		ArrayList<TravelDTO> list = dao.periodlist(dto);
+		
+		for (TravelDTO travel : list) {
+	         ArrayList<String> themaType = dao.tThemaType(travel.getTravelCode());
+	         travel.setThemaType(themaType);
+
+	         TravelDTO startDTO = dao.tCityStart(travel.getTravelCode());
+	         travel.setRegion_Start(startDTO.getRegion_Start());
+	         travel.setCity_Start(startDTO.getCity_Start());
+
+	         TravelDTO endDTO = dao.tCityEnd(travel.getTravelCode());
+	         travel.setRegion_End(endDTO.getRegion_End());
+	         travel.setCity_End(endDTO.getCity_End());
+	      }
+		
+		model.addAttribute("travelList", list);
+		
+		
+		model.addAttribute("selectValue", selectValue);
+		
+		
+		
+		return "category/PeriodList23";
+	}
+	
+	// 기간 검색 - 3박 4일
+	@RequestMapping(value = "/periodlist34.do")
+	public String periodList34(ModelMap model
+			, @RequestParam(name="selectValue" ,defaultValue="1") String selectValue) throws IOException {
+		ITravelDAO dao = sqlSession.getMapper(ITravelDAO.class);
+		TravelDTO dto = new TravelDTO();
+		
+		int totalNum = 0;
+		dto.setOrderNum("4");
+		totalNum = dao.periodNum(dto);
+		model.addAttribute("totalNum", totalNum);
+		
+		if (selectValue.equals("1"))
+			dto.setOrderBy("RECRUIT_END DESC");
+		else if(selectValue.equals("2"))
+			dto.setOrderBy("RATIO DESC");	
+		else if(selectValue.equals("3"))	
+			dto.setOrderBy("VIEWNUM DESC");	
+		else if(selectValue.equals("4"))
+			dto.setOrderBy("T_JJIM DESC");		
+		else if(selectValue.equals("5"))
+			dto.setOrderBy("W_JJIM DESC");		
+		else if(selectValue.equals("6"))
+			dto.setOrderBy("T_START");	
+		
+		ArrayList<TravelDTO> list = dao.periodlist(dto);
+		
+		for (TravelDTO travel : list) {
+	         ArrayList<String> themaType = dao.tThemaType(travel.getTravelCode());
+	         travel.setThemaType(themaType);
+
+	         TravelDTO startDTO = dao.tCityStart(travel.getTravelCode());
+	         travel.setRegion_Start(startDTO.getRegion_Start());
+	         travel.setCity_Start(startDTO.getCity_Start());
+
+	         TravelDTO endDTO = dao.tCityEnd(travel.getTravelCode());
+	         travel.setRegion_End(endDTO.getRegion_End());
+	         travel.setCity_End(endDTO.getCity_End());
+	      }
+		
+		model.addAttribute("travelList", list);
+		
+		
+		model.addAttribute("selectValue", selectValue);
+		
+		
+		
+		return "category/PeriodList34";
+	}
+	
+	// 기간 검색 - 4박 5일
+	@RequestMapping(value = "/periodlist45.do")
+	public String periodList45(ModelMap model
+			, @RequestParam(name="selectValue" ,defaultValue="1") String selectValue) throws IOException {
+		ITravelDAO dao = sqlSession.getMapper(ITravelDAO.class);
+		TravelDTO dto = new TravelDTO();
+		
+		int totalNum = 0;
+		dto.setOrderNum("5");
+		totalNum = dao.periodNum(dto);
+		model.addAttribute("totalNum", totalNum);
+		
+		if (selectValue.equals("1"))
+			dto.setOrderBy("RECRUIT_END DESC");
+		else if(selectValue.equals("2"))
+			dto.setOrderBy("RATIO DESC");	
+		else if(selectValue.equals("3"))	
+			dto.setOrderBy("VIEWNUM DESC");	
+		else if(selectValue.equals("4"))
+			dto.setOrderBy("T_JJIM DESC");		
+		else if(selectValue.equals("5"))
+			dto.setOrderBy("W_JJIM DESC");		
+		else if(selectValue.equals("6"))
+			dto.setOrderBy("T_START");	
+		
+		ArrayList<TravelDTO> list = dao.periodlist(dto);
+		
+		for (TravelDTO travel : list) {
+	         ArrayList<String> themaType = dao.tThemaType(travel.getTravelCode());
+	         travel.setThemaType(themaType);
+
+	         TravelDTO startDTO = dao.tCityStart(travel.getTravelCode());
+	         travel.setRegion_Start(startDTO.getRegion_Start());
+	         travel.setCity_Start(startDTO.getCity_Start());
+
+	         TravelDTO endDTO = dao.tCityEnd(travel.getTravelCode());
+	         travel.setRegion_End(endDTO.getRegion_End());
+	         travel.setCity_End(endDTO.getCity_End());
+	      }
+		
+		model.addAttribute("travelList", list);
+		
+		
+		model.addAttribute("selectValue", selectValue);
+		
+		
+		
+		return "category/PeriodList45";
+	}
+	
+	// 기간 검색 - 5박 이상
+	@RequestMapping(value = "/periodlistother.do")
+	public String periodListOther(ModelMap model
+			, @RequestParam(name="selectValue" ,defaultValue="1") String selectValue) throws IOException {
+		ITravelDAO dao = sqlSession.getMapper(ITravelDAO.class);
+		TravelDTO dto = new TravelDTO();
+		
+		int totalNum = 0;
+		dto.setOrderNum("6");
+		totalNum = dao.periodNumOther(dto);
+		model.addAttribute("totalNum", totalNum);
+		
+		if (selectValue.equals("1"))
+			dto.setOrderBy("RECRUIT_END DESC");
+		else if(selectValue.equals("2"))
+			dto.setOrderBy("RATIO DESC");	
+		else if(selectValue.equals("3"))	
+			dto.setOrderBy("VIEWNUM DESC");	
+		else if(selectValue.equals("4"))
+			dto.setOrderBy("T_JJIM DESC");		
+		else if(selectValue.equals("5"))
+			dto.setOrderBy("W_JJIM DESC");		
+		else if(selectValue.equals("6"))
+			dto.setOrderBy("T_START");	
+		
+		ArrayList<TravelDTO> list = dao.periodlistOther(dto);
+		
+		for (TravelDTO travel : list) {
+	         ArrayList<String> themaType = dao.tThemaType(travel.getTravelCode());
+	         travel.setThemaType(themaType);
+
+	         TravelDTO startDTO = dao.tCityStart(travel.getTravelCode());
+	         travel.setRegion_Start(startDTO.getRegion_Start());
+	         travel.setCity_Start(startDTO.getCity_Start());
+
+	         TravelDTO endDTO = dao.tCityEnd(travel.getTravelCode());
+	         travel.setRegion_End(endDTO.getRegion_End());
+	         travel.setCity_End(endDTO.getCity_End());
+	      }
+		
+		model.addAttribute("travelList", list);
+		
+		
+		model.addAttribute("selectValue", selectValue);
+		
+		
+		
+		return "category/PeriodListOther";
+	}
 
 }

@@ -26,6 +26,13 @@ public interface ITravelDAO {
 	public ArrayList<TravelDTO> themalist(TravelDTO dto); 
 	public int themaNum(TravelDTO dto);
 	
+	// 기간 선택검색
+	public ArrayList<TravelDTO> periodlist(TravelDTO dto); 
+	public int periodNum(TravelDTO dto);
+	
+	public ArrayList<TravelDTO> periodlistOther(TravelDTO dto); 
+	public int periodNumOther(TravelDTO dto);
+	
 	
 	
 	
