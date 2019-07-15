@@ -1556,4 +1556,18 @@ public class CategoryMainController {
 		
 		
 		
+		
+		// 회원 관심 테마 리스트 
+		@RequestMapping(value = "/favthemalist.do")
+		public String regionList16() throws IOException {
+
+			
+			return "category/FavorThemeList";
+		}			
+		
+		
+		
+			
+		
+		
 }

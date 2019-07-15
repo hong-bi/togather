@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.together.web.posts.IPostDAO">
+  	
+  	<select id="postInfoBasic" parameterType="com.together.web.posts.PostDTO" resultType="com.together.web.posts.PostDTO">
+  		SELECT TITLE, NICKNAME, AGE, GENDERTYPE, PEOPLENUM, REGINUM
+    		, RECRUIT_START, T_START,  T_END, INTRO, VIEWNUM
+		FROM POST
+		WHERE TRAVELCODE = #{travelCode}
+  	</select>  	
+  	
+  	<select id="tThemaType" parameterType="com.together.web.posts.PostDTO" resultType="java.lang.String">
+  		SELECT THEMATYPE
+		FROM POST_THEMA
+		WHERE TRAVELCODE= #{travelCode}
+  	</select>
+  	
+  	<select id="tLon" parameterType="com.together.web.posts.PostDTO" resultType="java.lang.String">  		
+		SELECT LON
+		FROM POST_REGION
+		WHERE TRAVELCODE = #{travelCode}
+  	</select>
+  	
+  	<select id="tLat" parameterType="com.together.web.posts.PostDTO" resultType="java.lang.String">  		
+		SELECT LAT
+		FROM POST_REGION
+		WHERE TRAVELCODE = #{travelCode}
+  	</select>
+  	
+  	<select id="tPlace" parameterType="com.together.web.posts.PostDTO" resultType="java.lang.String">  		
+		SELECT PLACENAME
+		FROM POST_REGION
+		WHERE TRAVELCODE = #{travelCode}
+  	</select>
+  	
+  	
+  	
+  	
+  
+  </mapper>

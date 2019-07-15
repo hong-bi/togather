@@ -38,6 +38,8 @@ public interface ITravelDAO {
 	public ArrayList<TravelDTO> regionlist(TravelDTO dto); 
 	public int regionNum(TravelDTO dto);
 	
+	// 관심 테마 리스트
+	
 	
 	
 }

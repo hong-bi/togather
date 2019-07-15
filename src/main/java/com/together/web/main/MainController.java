@@ -15,7 +15,7 @@ public class MainController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String beforeLoginMain(Locale locale, Model model) 
 	{
-		return "";
+		return "posts/PostInquiry";
 	}
 
 	/*
